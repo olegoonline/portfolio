@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>iGaming Platform — Multibrand Design System · Oleg Salnikov</title>
+<meta name="description" content="Design Lead on a flexible design system enabling rapid multibrand rollouts across an iGaming platform." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/case.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="logo" href="../index.html">
+    <span>OLEG SALNIKOV</span>
+    <span class="role">Team Lead / Senior Product Designer</span>
+  </a>
+  <a class="back" href="../index.html#works">← All work</a>
+</nav>
+
+<!-- HERO -->
+<section class="case-hero">
+  <div class="eyebrow">
+    <span class="num">N°01</span>
+    <span class="cat">iGAMING · LEAD</span>
+    <span>// CASE STUDY</span>
+  </div>
+  <h1>iGaming Platform — Multibrand Design System</h1>
+  <p class="tagline">A flexible token-driven system that let the company spin up new brands in weeks instead of quarters. One source of truth across web, native, and CMS-driven landing pages.</p>
+</section>
+
+<!-- META STRIP -->
+<div class="case-meta">
+  <div class="item">
+    <div class="label">Client</div>
+    <div class="value">Confidential · iGaming</div>
+  </div>
+  <div class="item">
+    <div class="label">Role</div>
+    <div class="value">Design Lead</div>
+  </div>
+  <div class="item">
+    <div class="label">Period</div>
+    <div class="value">'24 — '26</div>
+  </div>
+  <div class="item">
+    <div class="label">Team</div>
+    <div class="value">6 designers · 30+ eng</div>
+  </div>
+</div>
+
+<!-- HERO COVER -->
+<div class="case-cover">
+  <div class="frame">
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <rect width="14" height="14" fill="#ebe7df"/>
+          <rect width="7" height="14" fill="#e2ddd1"/>
+        </pattern>
+      </defs>
+      <rect width="1600" height="900" fill="url(#hatch)"/>
+      <rect x="80" y="80" width="1440" height="740" fill="none" stroke="#0e0e0e" stroke-width="1.5" stroke-dasharray="6 8"/>
+      <text x="800" y="450" text-anchor="middle" font-family="Space Mono, monospace" font-size="14" fill="#6b6960" letter-spacing="4">COVER IMAGE — REPLACE ME</text>
+      <text x="800" y="478" text-anchor="middle" font-family="Space Mono, monospace" font-size="11" fill="#9a9690" letter-spacing="3">recommended 1600 × 900 · png/jpg</text>
+    </svg>
+  </div>
+</div>
+
+<!-- BRIEF -->
+<section class="case-block">
+  <h2>// BRIEF</h2>
+  <div class="body">
+    <p>The company runs <strong>several consumer brands</strong> on a shared technical platform. Each brand had drifted into its own component library, its own colors, its own opinions. Launching a new brand took two quarters of design and engineering work — and the existing ones were slowly diverging from each other.</p>
+    <p>I joined as Design Lead to build a system that could host all brands at once: same components, swappable identity, no duplicated work.</p>
+  </div>
+  <aside class="side">
+    <dl>
+      <dt>Brands</dt><dd>4 live, 3 in flight</dd>
+      <dt>Surfaces</dt><dd>Web, iOS, Android, CMS</dd>
+      <dt>Locales</dt><dd>EN, DE, FI, +9 more</dd>
+      <dt>Status</dt><dd style="color:#1f7a3c">● Shipping</dd>
+    </dl>
+  </aside>
+</section>
+
+<!-- APPROACH -->
+<section class="case-block">
+  <h2>// APPROACH</h2>
+  <div class="body">
+    <p>We pulled the brand layer out of the components and pushed it down into <strong>tokens</strong> — color, type, radius, motion. Components stopped caring which brand they were rendering. A new brand became a JSON file plus three reviews.</p>
+    <ul>
+      <li>Audited 11 existing component libraries across brands and platforms.</li>
+      <li>Defined three token layers — primitive, semantic, brand — so designers could change wallpaper without touching plumbing.</li>
+      <li>Rebuilt 60+ core components in Figma + Storybook with parity across iOS, Android and Web.</li>
+      <li>Set up brand-switcher previews in every PR so reviewers see all four brands at once.</li>
+    </ul>
+  </div>
+  <aside class="side">
+    <dl>
+      <dt>Stack</dt><dd>Figma, Tokens Studio, Storybook</dd>
+      <dt>Eng</dt><dd>React, SwiftUI, Compose</dd>
+      <dt>Docs</dt><dd>Zeroheight</dd>
+      <dt>Cycle</dt><dd>2-week releases</dd>
+    </dl>
+  </aside>
+</section>
+
+<!-- GALLERY -->
+<section class="case-gallery">
+  <figure class="shot s-8">
+    <div class="frame">
+      <svg viewBox="0 0 1000 750" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1000" height="750" fill="#d9d5cd"/>
+        <line x1="0" y1="0" x2="1000" y2="750" stroke="#c4c0b8" stroke-width="1.5"/>
+        <line x1="1000" y1="0" x2="0" y2="750" stroke="#c4c0b8" stroke-width="1.5"/>
+        <text x="500" y="380" text-anchor="middle" font-family="Space Mono, monospace" font-size="12" fill="#9a9690" letter-spacing="3">TOKEN STRUCTURE DIAGRAM</text>
+      </svg>
+    </div>
+    <figcaption class="caption"><span>Token architecture · primitive → semantic → brand</span><span class="n">01</span></figcaption>
+  </figure>
+  <figure class="shot s-4">
+    <div class="frame">
+      <svg viewBox="0 0 500 750" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <rect width="500" height="750" fill="#d9d5cd"/>
+        <line x1="0" y1="0" x2="500" y2="750" stroke="#c4c0b8" stroke-width="1.5"/>
+        <line x1="500" y1="0" x2="0" y2="750" stroke="#c4c0b8" stroke-width="1.5"/>
+        <text x="250" y="380" text-anchor="middle" font-family="Space Mono, monospace" font-size="12" fill="#9a9690" letter-spacing="3">BRAND SWAP</text>
+      </svg>
+    </div>
+    <figcaption class="caption"><span>Component on 4 brands</span><span class="n">02</span></figcaption>
+  </figure>
+  <figure class="shot s-6">
+    <div class="frame">
+      <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <rect width="800" height="600" fill="#d9d5cd"/>
+        <line x1="0" y1="0" x2="800" y2="600" stroke="#c4c0b8" stroke-width="1.5"/>
+        <line x1="800" y1="0" x2="0" y2="600" stroke="#c4c0b8" stroke-width="1.5"/>
+        <text x="400" y="305" text-anchor="middle" font-family="Space Mono, monospace" font-size="12" fill="#9a9690" letter-spacing="3">FIGMA COMPONENT MAP</text>
+      </svg>
+    </div>
+    <figcaption class="caption"><span>Library overview</span><span class="n">03</span></figcaption>
+  </figure>
+  <figure class="shot s-6">
+    <div class="frame">
+      <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <rect width="800" height="600" fill="#d9d5cd"/>
+        <line x1="0" y1="0" x2="800" y2="600" stroke="#c4c0b8" stroke-width="1.5"/>
+        <line x1="800" y1="0" x2="0" y2="600" stroke="#c4c0b8" stroke-width="1.5"/>
+        <text x="400" y="305" text-anchor="middle" font-family="Space Mono, monospace" font-size="12" fill="#9a9690" letter-spacing="3">PR BRAND PREVIEW</text>
+      </svg>
+    </div>
+    <figcaption class="caption"><span>Multi-brand visual diff</span><span class="n">04</span></figcaption>
+  </figure>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="pull">
+  <blockquote>The new brand <span class="accent">shipped in 6 weeks</span>. The previous one took 5 months.</blockquote>
+  <cite>— internal launch retro · '25</cite>
+</section>
+
+<!-- OUTCOME -->
+<section class="case-block">
+  <h2>// OUTCOME</h2>
+  <div class="body">
+    <p>Brand-launch time dropped from quarters to weeks. Designers spent their time on hard problems instead of re-spec'ing buttons. Engineering halved the per-brand maintenance cost.</p>
+    <div class="outcomes">
+      <div class="outcome accent">
+        <div class="num">−78%</div>
+        <div class="label">Brand launch time</div>
+      </div>
+      <div class="outcome">
+        <div class="num">60+</div>
+        <div class="label">Components shipped</div>
+      </div>
+      <div class="outcome violet">
+        <div class="num">4 → 1</div>
+        <div class="label">Component libraries</div>
+      </div>
+      <div class="outcome">
+        <div class="num">2 wks</div>
+        <div class="label">Release cadence</div>
+      </div>
+    </div>
+  </div>
+  <aside class="side">
+    <dl>
+      <dt>My role</dt><dd>Lead designer, hiring, design ops</dd>
+      <dt>Wins</dt><dd>Token system, brand switcher, PR previews</dd>
+      <dt>Hard parts</dt><dd>Migrating live brands without freezing roadmaps</dd>
+    </dl>
+  </aside>
+</section>
+
+<!-- NEXT CASE -->
+<a class="next-case" href="last-level.html">
+  <div class="label">Next case · N°02</div>
+  <h3><span>Last Level — Product</span><span class="arrow">→</span></h3>
+</a>
+
+<!-- CONTACT -->
+<footer class="case-contact">
+  <div class="row">
+    <div>
+      <h4>// EMAIL</h4>
+      <a href="mailto:oleg.salnikov@gmail.com">oleg.salnikov@gmail.com</a>
+    </div>
+    <div>
+      <h4>// ELSEWHERE</h4>
+      <a href="#">LinkedIn ↗</a>
+      <a href="#">Read.cv ↗</a>
+      <a href="#">GitHub ↗</a>
+    </div>
+    <div>
+      <h4>// CALL</h4>
+      <a href="#">Book a 30-min intro ↗</a>
+    </div>
+  </div>
+  <div class="foot">
+    <span>© 2026 Oleg Salnikov · Limassol</span>
+    <span><a href="../index.html" style="color:inherit;text-decoration:none;">← Back to portfolio</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

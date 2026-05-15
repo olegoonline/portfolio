@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Claude-local config and skills (not for deploy)
+.claude/
+skills/

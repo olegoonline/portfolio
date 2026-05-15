@@ -260,11 +260,13 @@
     border: var(--hair) solid var(--ink);
     border-radius: 14px;
     overflow: hidden;
-    transition: transform .25s ease;
+    transition: transform .25s ease, box-shadow .25s ease;
     display: flex;
     flex-direction: column;
+    text-decoration: none;
+    color: inherit;
   }
-  .work:hover { transform: translateY(-4px); }
+  .work:hover { transform: translateY(-4px); box-shadow: 4px 6px 0 0 var(--ink); }
   .work .thumb {
     height: 380px;
     flex-shrink: 0;
@@ -606,15 +608,15 @@
 
 <!-- WORKS -->
 <div class="section-head">
-  <h2>Selected Work</h2>
-  <div class="meta">2021–2026<br/>7 of 30 shown</div>
+  <h2>Stuff I made</h2>
+  <div class="meta">2018–2026<br/>5 selected</div>
 </div>
 
 <section class="works" id="works">
 
-  <article class="work w-7">
+  <a class="work w-7" href="cases/igaming-platform.html">
     <span class="corner">N°01</span>
-    <span class="pill">FINTECH · LEAD</span>
+    <span class="pill">iGAMING · LEAD</span>
     <div class="thumb">
       <svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
         <rect width="800" height="500" fill="#d9d5cd"/>
@@ -625,16 +627,16 @@
       </svg>
     </div>
     <div class="body">
-      <h3>Lattice — Banking app v3</h3>
-      <span class="role">Design Lead · team of 6</span>
-      <span class="year">'26</span>
-      <div class="tags"><span class="tag">iOS</span><span class="tag">Android</span><span class="tag">Design System</span><span class="tag">Research</span></div>
+      <h3>iGaming Platform — Multibrand design system</h3>
+      <span class="role">Design Lead</span>
+      <span class="year">'24—'26</span>
+      <div class="tags"><span class="tag">Design System</span><span class="tag">Multibrand</span><span class="tag">Tokens</span><span class="tag">Web</span></div>
     </div>
-  </article>
+  </a>
 
-  <article class="work w-5">
+  <a class="work w-5" href="cases/last-level.html">
     <span class="corner">N°02</span>
-    <span class="pill violet">DESIGN SYSTEM</span>
+    <span class="pill violet">PRODUCT · LEAD</span>
     <div class="thumb">
       <svg viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
         <rect width="600" height="500" fill="#d9d5cd"/>
@@ -645,16 +647,16 @@
       </svg>
     </div>
     <div class="body">
-      <h3>Atlas — Design system</h3>
-      <span class="role">System Owner</span>
-      <span class="year">'25</span>
-      <div class="tags"><span class="tag">Tokens</span><span class="tag">Components</span><span class="tag">Docs</span></div>
+      <h3>Last Level — Product</h3>
+      <span class="role">Product Design · Design Lead</span>
+      <span class="year">'23—'24</span>
+      <div class="tags"><span class="tag">Product</span><span class="tag">B2C</span><span class="tag">Mobile</span></div>
     </div>
-  </article>
+  </a>
 
-  <article class="work w-4">
+  <a class="work w-4" href="cases/huawei-petal-search.html">
     <span class="corner">N°03</span>
-    <span class="pill">SAAS</span>
+    <span class="pill">MOBILE SEARCH</span>
     <div class="thumb">
       <svg viewBox="0 0 500 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
         <rect width="500" height="500" fill="#d9d5cd"/>
@@ -665,16 +667,16 @@
       </svg>
     </div>
     <div class="body">
-      <h3>Pulse — Analytics dashboard</h3>
-      <span class="role">Senior Designer</span>
-      <span class="year">'25</span>
-      <div class="tags"><span class="tag">Data viz</span><span class="tag">B2B</span><span class="tag">Web</span></div>
+      <h3>Petal Search — Huawei RU</h3>
+      <span class="role">Product Design</span>
+      <span class="year">'21—'22</span>
+      <div class="tags"><span class="tag">Search</span><span class="tag">Android</span><span class="tag">B2C</span></div>
     </div>
-  </article>
+  </a>
 
-  <article class="work w-4">
+  <a class="work w-4" href="cases/ads-design.html">
     <span class="corner">N°04</span>
-    <span class="pill violet">ONBOARDING</span>
+    <span class="pill violet">AGENCY · UI</span>
     <div class="thumb">
       <svg viewBox="0 0 500 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
         <rect width="500" height="500" fill="#d9d5cd"/>
@@ -685,16 +687,16 @@
       </svg>
     </div>
     <div class="body">
-      <h3>Drift — Mobile onboarding</h3>
-      <span class="role">Senior Designer</span>
-      <span class="year">'24</span>
-      <div class="tags"><span class="tag">Mobile</span><span class="tag">Activation</span><span class="tag">+38% D7</span></div>
+      <h3>ADS Design — UI work</h3>
+      <span class="role">UI Design</span>
+      <span class="year">'19—'20</span>
+      <div class="tags"><span class="tag">UI</span><span class="tag">Visual</span><span class="tag">Agency</span></div>
     </div>
-  </article>
+  </a>
 
-  <article class="work w-4">
+  <a class="work w-4" href="cases/freelance.html">
     <span class="corner">N°05</span>
-    <span class="pill">INTERNAL TOOLS</span>
+    <span class="pill">FREELANCE</span>
     <div class="thumb">
       <svg viewBox="0 0 500 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
         <rect width="500" height="500" fill="#d9d5cd"/>
@@ -705,52 +707,12 @@
       </svg>
     </div>
     <div class="body">
-      <h3>Console — Ops admin tool</h3>
-      <span class="role">Senior Designer</span>
-      <span class="year">'24</span>
-      <div class="tags"><span class="tag">Internal</span><span class="tag">Data-heavy</span><span class="tag">Tables</span></div>
+      <h3>Freelance — Selected gigs</h3>
+      <span class="role">Various roles</span>
+      <span class="year">'18—now</span>
+      <div class="tags"><span class="tag">Mixed</span><span class="tag">Various</span><span class="tag">Ongoing</span></div>
     </div>
-  </article>
-
-  <article class="work w-6">
-    <span class="corner">N°06</span>
-    <span class="pill violet">RESEARCH</span>
-    <div class="thumb">
-      <svg viewBox="0 0 700 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <rect width="700" height="500" fill="#d9d5cd"/>
-        <line x1="0" y1="0" x2="700" y2="500" stroke="#c4c0b8" stroke-width="1.5"/>
-        <line x1="700" y1="0" x2="0" y2="500" stroke="#c4c0b8" stroke-width="1.5"/>
-        <text x="350" y="245" text-anchor="middle" font-family="Space Mono, monospace" font-size="11" fill="#9a9690" letter-spacing="3">IMAGE</text>
-        <text x="350" y="265" text-anchor="middle" font-family="Space Mono, monospace" font-size="11" fill="#9a9690" letter-spacing="3">PLACEHOLDER</text>
-      </svg>
-    </div>
-    <div class="body">
-      <h3>Funnel research — Activation</h3>
-      <span class="role">Lead + IC · with PM</span>
-      <span class="year">'24</span>
-      <div class="tags"><span class="tag">User research</span><span class="tag">Quant + qual</span><span class="tag">Synthesis</span></div>
-    </div>
-  </article>
-
-  <article class="work w-6">
-    <span class="corner">N°07</span>
-    <span class="pill">LEADERSHIP</span>
-    <div class="thumb">
-      <svg viewBox="0 0 700 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <rect width="700" height="500" fill="#d9d5cd"/>
-        <line x1="0" y1="0" x2="700" y2="500" stroke="#c4c0b8" stroke-width="1.5"/>
-        <line x1="700" y1="0" x2="0" y2="500" stroke="#c4c0b8" stroke-width="1.5"/>
-        <text x="350" y="245" text-anchor="middle" font-family="Space Mono, monospace" font-size="11" fill="#9a9690" letter-spacing="3">IMAGE</text>
-        <text x="350" y="265" text-anchor="middle" font-family="Space Mono, monospace" font-size="11" fill="#9a9690" letter-spacing="3">PLACEHOLDER</text>
-      </svg>
-    </div>
-    <div class="body">
-      <h3>Scaling a design team 2 → 6</h3>
-      <span class="role">Hiring · Mentoring · Process</span>
-      <span class="year">'23—'26</span>
-      <div class="tags"><span class="tag">Hiring</span><span class="tag">1:1s</span><span class="tag">Critique</span><span class="tag">IC ladder</span></div>
-    </div>
-  </article>
+  </a>
 
 </section>
 
