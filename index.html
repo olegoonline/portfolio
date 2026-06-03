@@ -215,7 +215,7 @@
   /* About strip */
   .about-strip {
     display: grid;
-    grid-template-columns: 220px 1fr 280px;
+    grid-template-columns: 200px 1fr 340px;
     gap: 32px;
     padding: 56px 24px;
     border-bottom: var(--hair) solid var(--border);
@@ -259,7 +259,9 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-size: 11px;
-    align-self: center;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
     padding: 10px 0;
     border-bottom: var(--hair) solid var(--border);
     padding-right: 16px;
@@ -272,6 +274,7 @@
     padding: 10px 0;
     border-bottom: var(--hair) solid var(--border);
     font-size: 14px;
+    white-space: nowrap;
   }
 
   /* ---------- WORKS ---------- */
