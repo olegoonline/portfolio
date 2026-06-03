@@ -107,12 +107,12 @@ body {
 .case-hero h1 {
   font-family: "Hanken Grotesk", sans-serif;
   font-weight: 600;
-  font-size: clamp(32px, 5vw, 56px);
-  line-height: 1.1;
-  letter-spacing: -0.025em;
+  font-size: clamp(36px, 6vw, 80px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
   text-transform: none;
-  margin: 0 0 20px 0;
-  max-width: 22ch;
+  margin: 0 0 24px 0;
+  max-width: none;
   text-wrap: balance;
   color: var(--text);
 }
@@ -237,7 +237,6 @@ body {
   padding: 8px 0;
   border-bottom: var(--hair) solid var(--border);
   font-size: 13px;
-  white-space: nowrap;
 }
 
 /* GALLERY */
