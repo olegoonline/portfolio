@@ -1,0 +1,487 @@
+/* ── Oleg Salnikov portfolio — from dsign-2 Figma ─────────────────
+   Grid: 12 columns / 20px gutters / 1360 content / 40px margins   */
+
+:root {
+  --bg: rgb(13, 14, 16);
+  --surface: rgb(22, 24, 28);
+  --card: rgba(255, 255, 255, 0.05);
+  --accent: rgb(199, 255, 60);
+  --text-primary: rgba(255, 255, 255, 0.85);
+  --text-secondary: rgba(255, 255, 255, 0.5);
+  --text-body: rgba(255, 255, 255, 0.4);
+  --text-faint: rgba(255, 255, 255, 0.2);
+  --icon-stroke: rgba(255, 255, 255, 0.1);
+  --hairline: rgba(255, 255, 255, 0.08);
+  --font: "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/* 12-column grid shared by every section */
+.grid12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 20px;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* ── Header ─────────────────────────────────────────────────────── */
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.logo {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.site-nav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.site-nav a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+}
+
+.site-nav a:hover { color: var(--accent); }
+
+/* ── Links with external icon ───────────────────────────────────── */
+
+.ext-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+}
+
+.ext-link .material-symbols-outlined {
+  font-size: 16px;
+  color: var(--icon-stroke);
+  transition: color 0.2s ease;
+}
+
+.ext-link:hover,
+.ext-link:hover .material-symbols-outlined { color: var(--accent); }
+
+/* ── Hero ───────────────────────────────────────────────────────── */
+
+.hero {
+  padding-top: 301px;
+  padding-bottom: 92px;
+  align-items: start;
+}
+
+.hero-left { grid-column: 1 / span 5; }
+
+.hero-left .dot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: var(--text-primary);
+  margin-bottom: 28px;
+}
+
+h1.display, .display {
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--text-primary);
+  text-wrap: pretty;
+}
+
+.hero-right {
+  grid-column: 10 / span 3;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 40px;
+  padding-bottom: 8px;
+  align-items: flex-end;
+}
+
+.hero-bio {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 19px;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+.social-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+  align-items: center;
+}
+
+/* ── Project grid ───────────────────────────────────────────────── */
+
+.project-grid {
+  row-gap: 20px;
+  padding-bottom: 96px;
+}
+
+/* wrapper keeps name below card, both spanning 4 cols */
+.project-item {
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  background: var(--card);
+  overflow: hidden;
+  transition: outline-color 0.2s ease;
+  outline: 1px solid transparent;
+  outline-offset: -1px;
+}
+
+.project-card:hover { outline-color: rgba(255, 255, 255, 0.18); }
+
+.project-card .card-label {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: rgba(13, 14, 16, 0.72);
+  backdrop-filter: blur(6px);
+  border-radius: 999px;
+  padding: 8px 14px 8px 16px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.project-card .card-label .material-symbols-outlined {
+  font-size: 16px;
+  color: var(--accent);
+}
+
+.project-card:hover .card-label { opacity: 1; transform: translateY(0); }
+
+.project-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* ── About ──────────────────────────────────────────────────────── */
+
+.about { padding-bottom: 115px; }
+
+.about > h2 { grid-column: 1 / span 4; }
+
+.about-points {
+  grid-column: 7 / span 3;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.about-point { position: relative; }
+
+.about-point > .material-symbols-outlined {
+  position: absolute;
+  left: -84px;
+  top: 1px;
+  color: var(--text-secondary);
+}
+
+.about-point p {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 19px;
+  color: var(--text-secondary);
+}
+
+.about-photo {
+  grid-column: 7 / span 3;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Case page ──────────────────────────────────────────────────── */
+
+.back-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px 8px 12px;
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-top: 64px;
+  transition: background 0.2s ease;
+}
+
+.back-pill .material-symbols-outlined { font-size: 20px; color: var(--accent); }
+
+.back-pill:hover { background: rgb(30, 31, 33); }
+
+.case-head {
+  padding-top: 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.case-head > * { max-width: 670px; }
+
+.case-head .lede {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 22px;
+  color: var(--text-secondary);
+}
+
+.case-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text-faint);
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding-top: 96px;
+}
+
+.case-shot {
+  aspect-ratio: 670 / 440;
+  background: var(--card);
+  overflow: hidden;
+}
+
+.case-cols {
+  padding-top: 96px;
+  padding-bottom: 96px;
+  row-gap: 80px;
+}
+
+.case-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.case-col:first-child { grid-column: 1 / span 4; }
+.case-col:last-child  { grid-column: 7 / span 5; }
+
+.case-col h2 { font-size: 64px; font-weight: 400; line-height: 1.1; color: var(--text-primary); }
+
+.case-col p, .case-col li {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 22px;
+  color: var(--text-body);
+}
+
+.case-col .body { display: flex; flex-direction: column; gap: 22px; }
+
+.case-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-col li {
+  display: grid;
+  grid-template-columns: 12px 1fr;
+  gap: 10px;
+}
+
+.case-col li::before {
+  content: "•";
+  color: var(--text-faint);
+  line-height: 22px;
+}
+
+/* prev / next */
+.case-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 96px;
+}
+
+.case-nav::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: var(--hairline);
+  margin-bottom: 96px;
+}
+
+.case-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.2s ease;
+}
+
+.case-nav a .material-symbols-outlined { color: rgba(255, 255, 255, 0.8); transition: color 0.2s ease; }
+
+.case-nav a:hover,
+.case-nav a:hover .material-symbols-outlined { color: var(--accent); }
+
+/* ── Footer ─────────────────────────────────────────────────────── */
+
+.footer-cols { padding-bottom: 64px; }
+
+.footer-cols::before {
+  content: "";
+  grid-column: 1 / -1;
+  height: 1px;
+  background: var(--hairline);
+  margin-bottom: 64px;
+}
+
+.footer-col:first-child { grid-column: 1 / span 4; }
+.footer-col:last-child  { grid-column: 7 / span 3; }
+
+.footer-col h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-faint);
+  margin-bottom: 44px;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.footer-col a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+}
+
+.footer-col a:hover { color: var(--accent); }
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 64px;
+}
+
+.footer-bottom::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: var(--hairline);
+  margin-bottom: 64px;
+}
+
+.footer-bottom a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.footer-bottom .built {
+  display: inline-flex;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+
+@media (max-width: 1040px) {
+  .hero { padding-top: 160px; row-gap: 48px; }
+  .hero-left { grid-column: 1 / -1; }
+  .hero-right { grid-column: 1 / span 6; align-self: start; justify-content: flex-start; align-items: flex-start; padding-top: 0; padding-bottom: 0; gap: 48px; }
+  .hero-bio { text-align: left; }
+  .project-item { grid-column: span 6; }
+  .about { row-gap: 64px; }
+  .about > h2 { grid-column: 1 / -1; }
+  .about-points { grid-column: 2 / span 6; }
+  .about-photo { grid-column: 2 / span 6; }
+  .case-col:first-child, .case-col:last-child { grid-column: 1 / -1; }
+  .footer-col:first-child { grid-column: 1 / span 6; }
+  .footer-col:last-child { grid-column: 7 / span 6; }
+}
+
+@media (max-width: 720px) {
+  .container { padding-left: 24px; padding-right: 24px; }
+  h1.display, .display, .case-col h2 { font-size: 40px; }
+  .hero-right { grid-column: 1 / -1; }
+  .project-item { grid-column: 1 / -1; }
+  .case-grid { grid-template-columns: 1fr; }
+  .about-points { grid-column: 1 / -1; padding-left: 44px; }
+  .about-photo { grid-column: 1 / -1; }
+  .about-point > .material-symbols-outlined { left: -44px; }
+  .footer-col:first-child { grid-column: 1 / -1; }
+  .footer-col:last-child { grid-column: 1 / -1; margin-top: 64px; }
+}

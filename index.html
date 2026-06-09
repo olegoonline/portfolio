@@ -1,886 +1,118 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Oleg Salnikov — Team Lead / Senior Product Designer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-
-<style>
-  :root {
-    --bg: #0d0e10;
-    --surface: #16181c;
-    --surface-2: #1b1e23;
-    --border: rgba(255,255,255,0.09);
-    --border-strong: rgba(255,255,255,0.16);
-    --text: #ededec;
-    --text-2: #c4c7cc;
-    --muted: #868a92;
-    --accent: #c8ff3d;
-    --accent-b: #9d6cff;
-    --hair: 1px;
-  }
-
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: "Hanken Grotesk", system-ui, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    font-size: 17px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-    margin: 0; padding: 0;
-  }
-  ::selection { background: var(--accent); color: var(--bg); }
-
-  /* ---------- NAV ---------- */
-  .nav {
-    position: sticky; top: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 24px;
-    background: rgba(13,14,16,0.82);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-bottom: var(--hair) solid var(--border);
-  }
-  .nav .logo {
-    font-weight: 600; font-size: 15px; letter-spacing: -0.01em;
-    display: inline-flex; align-items: center; gap: 12px;
-    text-transform: none;
-  }
-  .nav .logo .role {
-    color: var(--muted);
-    font-weight: 400;
-    font-size: 12px;
-    letter-spacing: 0.02em;
-    padding-left: 12px;
-    border-left: var(--hair) solid var(--border-strong);
-    margin-left: 4px;
-    text-transform: none;
-  }
-  .nav .links { display: flex; gap: 24px; }
-  .nav .links a {
-    color: var(--text-2); text-decoration: none;
-    font-size: 14px;
-    padding: 4px 0;
-    transition: color .15s ease;
-    text-transform: none;
-    letter-spacing: 0;
-    border-bottom: none;
-  }
-  .nav .links a:hover { color: var(--text); border-bottom: none; }
-
-  /* ---------- HERO ---------- */
-  .hero {
-    padding: 80px 24px 64px;
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 48px;
-    align-items: stretch;
-    border-bottom: var(--hair) solid var(--border);
-  }
-  .hero .eyebrow {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-family: "Space Mono", monospace;
-    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 24px;
-  }
-  .hero .eyebrow .pulse {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: var(--accent);
-    animation: pulse 2.4s ease-out infinite;
-  }
-  @keyframes pulse {
-    0%   { box-shadow: 0 0 0 0 rgba(200,255,61,.55); }
-    70%  { box-shadow: 0 0 0 9px rgba(200,255,61,0); }
-    100% { box-shadow: 0 0 0 0 rgba(200,255,61,0); }
-  }
-
-  .hero h1 {
-    font-family: "Hanken Grotesk", sans-serif;
-    font-weight: 600;
-    font-size: clamp(36px, 5vw, 60px);
-    line-height: 1.1;
-    letter-spacing: -0.025em;
-    text-transform: none;
-    margin: 0 0 20px 0;
-    color: var(--text);
-    text-wrap: balance;
-  }
-  .hero h1 .swap {
-    display: inline;
-    background: none;
-    color: var(--accent);
-    padding: 0;
-    border-radius: 0;
-  }
-  .hero .tagline {
-    font-size: 18px;
-    max-width: 44ch;
-    margin: 0 0 32px 0;
-    color: var(--text-2);
-    line-height: 1.6;
-    text-wrap: pretty;
-  }
-  .hero .meta {
-    display: flex; flex-wrap: wrap; gap: 10px;
-    margin-top: 32px;
-  }
-  .hero .meta .chip {
-    display: inline-flex; align-items: center; gap: 8px;
-    border: var(--hair) solid var(--border-strong);
-    background: transparent;
-    padding: 10px 18px;
-    border-radius: 10px;
-    font-size: 14px; font-weight: 500;
-    text-decoration: none;
-    color: var(--text);
-    text-transform: none;
-    letter-spacing: 0;
-    transition: border-color .15s ease, background .15s ease, transform .15s ease;
-    font-family: "Hanken Grotesk", sans-serif;
-  }
-  .hero .meta .chip:hover {
-    border-color: var(--text-2);
-    background: var(--surface);
-    transform: translateY(-1px);
-  }
-  .hero .meta .chip.fill {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--bg);
-    font-weight: 600;
-  }
-  .hero .meta .chip.fill:hover {
-    filter: brightness(1.05);
-    background: var(--accent);
-    transform: translateY(-1px);
-  }
-
-  /* Portrait card */
-  .portrait-card {
-    position: relative;
-    background: var(--surface);
-    border: var(--hair) solid var(--border);
-    border-radius: 14px;
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-  }
-  .portrait-card .frame {
-    position: relative;
-    flex: 1;
-    min-height: 0;
-    border-radius: 8px;
-    overflow: hidden;
-    background: var(--surface-2);
-  }
-  .portrait-card .frame svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .portrait-card .frame .label {
-    position: absolute; left: 12px; bottom: 12px;
-    color: var(--muted);
-    font-family: "Space Mono", monospace;
-    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
-    background: none;
-    backdrop-filter: none;
-    padding: 0;
-  }
-  .portrait-card .caption {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: var(--hair) solid var(--border);
-    font-family: "Space Mono", monospace;
-    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--muted);
-  }
-  .portrait-card .caption strong {
-    color: var(--text);
-    font-weight: 600;
-    font-family: "Hanken Grotesk", sans-serif;
-    font-size: 13px;
-    letter-spacing: 0;
-    text-transform: none;
-    display: block;
-    margin-bottom: 2px;
-  }
-
-  /* About strip */
-  .about-strip {
-    display: grid;
-    grid-template-columns: 200px 1fr 340px;
-    gap: 32px;
-    padding: 56px 24px;
-    border-bottom: var(--hair) solid var(--border);
-    align-items: start;
-  }
-  .about-strip h3 {
-    margin: 0;
-    font-family: "Space Mono", monospace;
-    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--muted);
-    font-weight: 700;
-  }
-  .about-strip .body p {
-    font-size: 19px;
-    line-height: 1.6;
-    margin: 0 0 16px 0;
-    max-width: 56ch;
-    text-wrap: pretty;
-    color: var(--text-2);
-  }
-  .about-strip .body p strong {
-    background: none;
-    color: var(--text);
-    font-weight: 600;
-    padding: 0;
-  }
-  .about-strip .facts {
-    border-left: var(--hair) solid var(--border);
-    padding-left: 24px;
-    font-size: 14px;
-  }
-  .about-strip .facts dl {
-    margin: 0;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0;
-  }
-  .about-strip .facts dt {
-    color: var(--muted);
-    font-family: "Space Mono", monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: 11px;
-    align-self: stretch;
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: var(--hair) solid var(--border);
-    padding-right: 16px;
-  }
-  .about-strip .facts dd {
-    margin: 0;
-    font-weight: 500;
-    color: var(--text);
-    text-align: right;
-    padding: 10px 0;
-    border-bottom: var(--hair) solid var(--border);
-    font-size: 14px;
-    white-space: nowrap;
-  }
-
-  /* ---------- WORKS ---------- */
-  .section-head {
-    display: flex; align-items: baseline; justify-content: space-between;
-    padding: 48px 24px 24px;
-    gap: 24px;
-  }
-  .section-head h2 {
-    font-family: "Space Mono", monospace;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    margin: 0;
-    color: var(--text);
-    line-height: 1;
-  }
-  .section-head .meta {
-    font-family: "Space Mono", monospace;
-    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--muted);
-    text-align: right;
-  }
-
-  .works {
-    padding: 8px 24px 48px;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 16px;
-  }
-  .work {
-    position: relative;
-    background: var(--surface);
-    border: var(--hair) solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
-    transition: border-color .2s ease, transform .2s ease;
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    color: inherit;
-  }
-  .work:hover { border-color: var(--border-strong); transform: translateY(-3px); }
-  .work .thumb {
-    height: 360px;
-    flex-shrink: 0;
-    background: var(--surface-2);
-    border-bottom: var(--hair) solid var(--border);
-    position: relative;
-    overflow: hidden;
-  }
-  .work .thumb svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .work .body {
-    flex: 1;
-    padding: 16px 18px 18px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: 1fr auto auto;
-    gap: 6px 16px;
-  }
-  .work .body h3 {
-    grid-column: 1 / -1;
-    grid-row: 1;
-    align-self: start;
-    margin: 0;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    color: var(--text);
-    text-transform: none;
-  }
-  .work .body .role {
-    grid-row: 2;
-    align-self: center;
-    font-size: 13px; color: var(--muted);
-    text-transform: none; letter-spacing: 0;
-  }
-  .work .body .year {
-    grid-row: 2;
-    align-self: center;
-    font-family: "Space Mono", monospace;
-    font-size: 12px;
-    color: var(--muted);
-  }
-  .work .body .tags {
-    grid-column: 1 / -1;
-    grid-row: 3;
-    display: flex; flex-wrap: wrap; gap: 6px;
-    margin-top: 4px;
-  }
-  .work .body .tag {
-    font-size: 11px;
-    text-transform: none; letter-spacing: 0;
-    border: var(--hair) solid var(--border);
-    padding: 3px 10px; border-radius: 999px;
-    background: var(--surface-2);
-    color: var(--text-2);
-    font-family: "Hanken Grotesk", sans-serif;
-  }
-  .work .corner {
-    position: absolute; top: 12px; left: 12px;
-    background: rgba(13,14,16,0.7);
-    backdrop-filter: blur(8px);
-    color: var(--muted);
-    font-family: "Space Mono", monospace;
-    font-size: 11px;
-    padding: 3px 8px;
-    border-radius: 6px;
-    z-index: 2;
-    letter-spacing: 0.08em;
-    border: var(--hair) solid var(--border);
-  }
-  .work .pill {
-    position: absolute; top: 12px; right: 12px;
-    background: rgba(13,14,16,0.7);
-    backdrop-filter: blur(8px);
-    color: var(--text-2);
-    border: var(--hair) solid var(--border);
-    padding: 3px 10px; border-radius: 999px;
-    font-family: "Space Mono", monospace;
-    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-    z-index: 2;
-  }
-  .work .pill.violet { background: rgba(157,108,255,0.15); color: #c4aaff; border-color: rgba(157,108,255,0.3); }
-
-  .work.w-7 { grid-column: span 7; }
-  .work.w-5 { grid-column: span 5; }
-  .work.w-6 { grid-column: span 6; }
-  .work.w-4 { grid-column: span 4; }
-  .work.w-8 { grid-column: span 8; }
-  .work.w-12 { grid-column: span 12; }
-
-  /* ---------- TOOLS & SKILLS ---------- */
-  .ts {
-    background: var(--surface);
-    color: var(--text);
-    padding: 0 0 56px;
-    border-top: var(--hair) solid var(--border);
-    border-bottom: var(--hair) solid var(--border);
-  }
-  .ts .section-head h2 { color: var(--text); }
-  .ts .section-head .meta { color: var(--muted); }
-  .ts .grid {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 40px;
-    padding: 0 24px;
-  }
-  .ts .block h3 {
-    font-family: "Space Mono", monospace;
-    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--muted);
-    margin: 0 0 20px 0;
-    font-weight: 700;
-  }
-  .tools-row {
-    display: flex; flex-wrap: wrap; gap: 9px;
-  }
-  .tool {
-    padding: 9px 15px;
-    border-radius: 9px;
-    background: var(--surface-2);
-    border: var(--hair) solid var(--border);
-    font-size: 14px; color: var(--text-2);
-    font-family: "Hanken Grotesk", sans-serif;
-    font-weight: 500;
-    /* reset old sizing */
-    width: auto; height: auto;
-    display: inline-flex; align-items: center;
-  }
-  .tool .sub { display: none; }
-  .tool.accent { background: rgba(200,255,61,0.1); border-color: rgba(200,255,61,0.25); color: var(--accent); }
-  .tool.violet { background: rgba(157,108,255,0.1); border-color: rgba(157,108,255,0.25); color: #c4aaff; }
-
-  .ai-note {
-    margin-top: 20px;
-    padding: 16px 18px;
-    border-radius: 12px;
-    background: var(--surface-2);
-    border: var(--hair) solid var(--border);
-  }
-  .ai-note .hl {
-    display: block; margin-bottom: 6px;
-    font-weight: 600; font-size: 14px;
-    color: var(--accent);
-  }
-  .ai-note p {
-    margin: 0;
-    font-size: 14px; color: var(--muted); line-height: 1.6;
-    font-weight: 400;
-  }
-
-  .skills-list {
-    display: flex; flex-direction: column;
-    max-width: 420px;
-    margin-left: auto;
-  }
-  .block:has(.skills-list) h3 {
-    max-width: 420px;
-    margin-left: auto;
-  }
-  .skill {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center; gap: 16px;
-    padding: 12px 0;
-    border-bottom: var(--hair) solid var(--border);
-    font-size: 15px;
-    color: var(--text-2);
-    background: none;
-    border-radius: 0;
-    /* reset old pill style */
-    border-left: none; border-right: none; border-top: none;
-  }
-  .skill:first-child { padding-top: 0; }
-  .skill .num { display: none; }
-  .skill .level { display: inline-flex; gap: 4px; }
-  .skill .level i {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: rgba(255,255,255,0.14);
-    display: inline-block;
-  }
-  .skill .level i.on { background: var(--accent); }
-
-  /* ---------- CONTACT ---------- */
-  .contact {
-    background: var(--bg);
-    color: var(--text);
-    padding: 80px 24px 48px;
-    border-top: var(--hair) solid var(--border);
-    position: relative;
-    overflow: hidden;
-  }
-  .contact h2 {
-    font-family: "Hanken Grotesk", sans-serif;
-    font-size: clamp(32px, 4.6vw, 48px);
-    line-height: 1.1;
-    font-weight: 600;
-    letter-spacing: -0.025em;
-    text-transform: none;
-    margin: 0 0 16px 0;
-    color: var(--text);
-    max-width: 20ch;
-    text-wrap: balance;
-  }
-  .contact h2 .accent { color: var(--accent); -webkit-text-stroke: 0; }
-  .contact h2 .stroke {
-    -webkit-text-stroke: 0;
-    color: var(--muted);
-    font-weight: 400;
-  }
-  .contact .row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 32px;
-    border-top: var(--hair) solid var(--border);
-    padding-top: 28px;
-    margin-top: 40px;
-  }
-  .contact .row h4 {
-    margin: 0 0 10px 0;
-    font-family: "Space Mono", monospace;
-    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--muted);
-    font-weight: 700;
-  }
-  .contact .row a {
-    color: var(--text-2); text-decoration: none; display: block; font-size: 16px;
-    transition: color .15s ease;
-  }
-  .contact .row a:hover { color: var(--text); }
-  .contact .foot {
-    margin-top: 48px;
-    padding-top: 20px;
-    border-top: var(--hair) solid var(--border);
-    display: flex; justify-content: space-between;
-    font-family: "Space Mono", monospace;
-    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width: 1100px) {
-    .nav .logo .role { display: none; }
-  }
-
-  @media (max-width: 900px) {
-    .nav .links { display: none; }
-
-    .hero {
-      grid-template-columns: 1fr;
-      padding: 48px 20px 40px;
-      gap: 32px;
-    }
-    .portrait-card .frame { aspect-ratio: 16/9; }
-
-    .about-strip {
-      grid-template-columns: 1fr;
-      padding: 40px 20px;
-      gap: 24px;
-    }
-    .about-strip .facts {
-      border-left: none;
-      border-top: var(--hair) solid var(--border);
-      padding-left: 0;
-      padding-top: 20px;
-    }
-
-    .section-head { padding: 36px 20px 20px; }
-
-    .works { padding: 8px 20px 40px; gap: 12px; }
-    .work.w-4, .work.w-5, .work.w-6, .work.w-7, .work.w-8 { grid-column: span 12; }
-
-    .ts .grid { grid-template-columns: 1fr; gap: 32px; }
-    .skills-list { margin-left: 0; max-width: 100%; }
-    .block:has(.skills-list) h3 { margin-left: 0; }
-
-    .contact { padding: 48px 20px 32px; }
-    .contact .row { grid-template-columns: 1fr; gap: 20px; }
-    .contact .foot { flex-direction: column; gap: 6px; }
-  }
-
-  @media (max-width: 480px) {
-    .nav { padding: 12px 16px; }
-
-    .hero { padding: 36px 16px 32px; }
-    .hero h1 { font-size: clamp(32px, 9vw, 60px); }
-    .hero .tagline { font-size: 16px; }
-    .hero .meta .chip { padding: 9px 14px; font-size: 13px; }
-
-    .about-strip { padding: 32px 16px; }
-    .about-strip .body p { font-size: 17px; }
-
-    .section-head { padding: 28px 16px 16px; }
-    .section-head h2 { font-size: 12px; }
-
-    .works { padding: 8px 16px 32px; gap: 10px; }
-    .work .body h3 { font-size: 16px; }
-
-    .ts .grid { padding: 0 16px; }
-    .tool { font-size: 13px; padding: 8px 12px; }
-
-    .contact { padding: 40px 16px 28px; }
-    .contact h2 { font-size: clamp(28px, 8vw, 48px); }
-    .contact .row a { font-size: 15px; }
-    .contact .foot { font-size: 10px; }
-  }
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oleg Salnikov — Product Designer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300,0,0">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <div class="logo">
-    <span>Oleg Salnikov</span>
-    <span class="role">Lead Product Designer</span>
-  </div>
-  <div class="links">
-    <a href="#works">Works</a>
-    <a href="#about">About</a>
-    <a href="#tools">Tools</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="top">
-  <div>
-    <div class="eyebrow">Portfolio</div>
-    <h1>
-      I'm <span class="swap">Oleg</span>.<br />
-      Lead Product<br />
-      Designer.
-    </h1>
-    <p class="tagline">I lead product design teams and ship interfaces that respect the user's time. 7+ years across gaming, B2B/B2C platforms and digital products.</p>
-    <div class="meta">
-      <a class="chip fill" href="#">↓ Download CV</a>
-      <a class="chip" href="https://t.me/" target="_blank" rel="noopener">Telegram ↗</a>
-      <a class="chip" href="https://www.linkedin.com/in/oleg-salnikov-800204224" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a class="chip" href="mailto:o.salnikov.contact@gmail.com">Email ↗</a>
-    </div>
-  </div>
-
-  <aside class="portrait-card">
-    <div class="frame">
-      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <rect width="400" height="500" fill="#1b1e23"/>
-        <circle cx="200" cy="196" r="72" fill="none" stroke="#2a2e34" stroke-width="1.5"/>
-        <rect x="110" y="308" width="180" height="160" rx="16" fill="none" stroke="#2a2e34" stroke-width="1.5"/>
-        <text x="200" y="252" text-anchor="middle" font-family="Space Mono, monospace" font-size="11" fill="#5a5e66" letter-spacing="2">PORTRAIT</text>
-      </svg>
-      <div class="label">OS_2026.JPG</div>
-    </div>
-    <div class="caption">
-      <div>
-        <strong>Oleg Salnikov</strong>
-        Limassol · GMT+3
-      </div>
-      <div>● Open to roles</div>
-    </div>
-  </aside>
-</section>
-
-<!-- ABOUT STRIP -->
-<section class="about-strip" id="about">
-  <h3>// About</h3>
-  <div class="body">
-    <p>I build design practices where decisions are grounded in research and ideas ship fast. I've led a team of 6 at a multi-brand B2B/B2C platform — hiring, running reviews, turning roadmaps into shipped product — while staying hands-on with the work.</p>
-  </div>
-  <div class="facts">
-    <dl>
-      <dt>NOW</dt><dd>Lead Product Designer — Limassol</dd>
-      <dt>PREV</dt><dd>Last Level, Huawei, ADS Design</dd>
-      <dt>LED</dt><dd>Team of 6</dd>
-      <dt>BRANDS</dt><dd>13 active</dd>
-      <dt>STATUS</dt><dd style="color: var(--accent)">● Open to roles</dd>
-    </dl>
-  </div>
-</section>
-
-<!-- WORKS -->
-<div class="section-head">
-  <h2>Selected work</h2>
-  <div class="meta">2017–2026<br/>5 selected</div>
+<div class="container">
+  <header class="site-header">
+    <a class="logo" href="index.html">Oleg Salnikov</a>
+    <nav class="site-nav">
+      <a href="#projects">projects</a>
+      <a href="#about">about</a>
+      <a href="#contacts">contacts</a>
+    </nav>
+  </header>
 </div>
 
-<section class="works" id="works">
-
-  <a class="work w-7" href="cases/igaming-platform.html">
-    <span class="corner">N°01</span>
-    <span class="pill">iGAMING · LEAD</span>
-    <div class="thumb">
-      <svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <rect width="800" height="500" fill="#1b1e23"/>
-        <line x1="0" y1="0" x2="800" y2="500" stroke="#2a2e34" stroke-width="1.5"/>
-        <line x1="800" y1="0" x2="0" y2="500" stroke="#2a2e34" stroke-width="1.5"/>
-        <text x="400" y="255" text-anchor="middle" font-family="Space Mono, monospace" font-size="11" fill="#5a5e66" letter-spacing="3">IMAGE</text>
-        <text x="400" y="275" text-anchor="middle" font-family="Space Mono, monospace" font-size="11" fill="#5a5e66" letter-spacing="3">PLACEHOLDER</text>
-      </svg>
+<main>
+  <section class="container hero grid12">
+    <div class="hero-left">
+      <span class="dot"></span>
+      <h1 class="display">product designer and&nbsp;design lead, based in Limassol</h1>
     </div>
-    <div class="body">
-      <h3>Multi-Brand B2B/B2C Platform — Design System</h3>
-      <span class="role">Lead Product Designer</span>
-      <span class="year">'24—now</span>
-      <div class="tags"><span class="tag">Design System</span><span class="tag">Multibrand</span><span class="tag">Tokens</span><span class="tag">Web</span></div>
-    </div>
-  </a>
-
-  <a class="work w-5" href="cases/last-level.html">
-    <span class="corner">N°02</span>
-    <span class="pill violet">PRODUCT · LEAD</span>
-    <div class="thumb">
-      <svg viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <rect width="600" height="500" fill="#1b1e23"/>
-        <line x1="0" y1="0" x2="600" y2="500" stroke="#2a2e34" stroke-width="1.5"/>
-        <line x1="600" y1="0" x2="0" y2="500" stroke="#2a2e34" stroke-width="1.5"/>
-        <text x="300" y="245" text-anchor="middle" font-family="Space Mono, monospace" font-size="11" fill="#5a5e66" letter-spacing="3">IMAGE</text>
-        <text x="300" y="265" text-anchor="middle" font-family="Space Mono, monospace" font-size="11" fill="#5a5e66" letter-spacing="3">PLACEHOLDER</text>
-      </svg>
-    </div>
-    <div class="body">
-      <h3>Last Level — Modern Strike Online</h3>
-      <span class="role">Team Lead / Senior UI-UX Designer</span>
-      <span class="year">'22—'24</span>
-      <div class="tags"><span class="tag">Product</span><span class="tag">B2C</span><span class="tag">Mobile</span></div>
-    </div>
-  </a>
-
-  <a class="work w-4" href="cases/huawei-petal-search.html">
-    <span class="corner">N°03</span>
-    <span class="pill">MOBILE SEARCH</span>
-    <div class="thumb">
-      <svg viewBox="0 0 500 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <rect width="500" height="500" fill="#1b1e23"/>
-        <line x1="0" y1="0" x2="500" y2="500" stroke="#2a2e34" stroke-width="1.5"/>
-        <line x1="500" y1="0" x2="0" y2="500" stroke="#2a2e34" stroke-width="1.5"/>
-        <text x="250" y="245" text-anchor="middle" font-family="Space Mono, monospace" font-size="11" fill="#5a5e66" letter-spacing="3">IMAGE</text>
-        <text x="250" y="265" text-anchor="middle" font-family="Space Mono, monospace" font-size="11" fill="#5a5e66" letter-spacing="3">PLACEHOLDER</text>
-      </svg>
-    </div>
-    <div class="body">
-      <h3>Petal Search — Huawei RU</h3>
-      <span class="role">Team Lead / Senior UI-UX Designer</span>
-      <span class="year">'22</span>
-      <div class="tags"><span class="tag">Search</span><span class="tag">Android</span><span class="tag">B2C</span></div>
-    </div>
-  </a>
-
-  <a class="work w-4" href="cases/ads-design.html">
-    <span class="corner">N°04</span>
-    <span class="pill violet">AGENCY · UI</span>
-    <div class="thumb">
-      <svg viewBox="0 0 500 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <rect width="500" height="500" fill="#1b1e23"/>
-        <line x1="0" y1="0" x2="500" y2="500" stroke="#2a2e34" stroke-width="1.5"/>
-        <line x1="500" y1="0" x2="0" y2="500" stroke="#2a2e34" stroke-width="1.5"/>
-        <text x="250" y="245" text-anchor="middle" font-family="Space Mono, monospace" font-size="11" fill="#5a5e66" letter-spacing="3">IMAGE</text>
-        <text x="250" y="265" text-anchor="middle" font-family="Space Mono, monospace" font-size="11" fill="#5a5e66" letter-spacing="3">PLACEHOLDER</text>
-      </svg>
-    </div>
-    <div class="body">
-      <h3>ADS Design Studio</h3>
-      <span class="role">UI/UX Designer</span>
-      <span class="year">'19—'20</span>
-      <div class="tags"><span class="tag">UI</span><span class="tag">Visual</span><span class="tag">Agency</span></div>
-    </div>
-  </a>
-
-  <a class="work w-4" href="cases/freelance.html">
-    <span class="corner">N°05</span>
-    <span class="pill">FREELANCE</span>
-    <div class="thumb">
-      <svg viewBox="0 0 500 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <rect width="500" height="500" fill="#1b1e23"/>
-        <line x1="0" y1="0" x2="500" y2="500" stroke="#2a2e34" stroke-width="1.5"/>
-        <line x1="500" y1="0" x2="0" y2="500" stroke="#2a2e34" stroke-width="1.5"/>
-        <text x="250" y="245" text-anchor="middle" font-family="Space Mono, monospace" font-size="11" fill="#5a5e66" letter-spacing="3">IMAGE</text>
-        <text x="250" y="265" text-anchor="middle" font-family="Space Mono, monospace" font-size="11" fill="#5a5e66" letter-spacing="3">PLACEHOLDER</text>
-      </svg>
-    </div>
-    <div class="body">
-      <h3>Freelance — UI Design</h3>
-      <span class="role">UI Designer</span>
-      <span class="year">'17—'19</span>
-      <div class="tags"><span class="tag">Mixed</span><span class="tag">Various</span><span class="tag">Ongoing</span></div>
-    </div>
-  </a>
-
-</section>
-
-<!-- TOOLS & SKILLS -->
-<section class="ts" id="tools">
-  <div class="section-head">
-    <h2>Tools &amp; Skills</h2>
-    <div class="meta">Day-to-day kit<br/>last updated 04 / '26</div>
-  </div>
-
-  <div class="grid">
-    <div class="block">
-      <h3>// Tools</h3>
-      <div class="tools-row">
-        <div class="tool">Figma</div>
-        <div class="tool accent">Framer</div>
-        <div class="tool">Photoshop</div>
-        <div class="tool violet">Principle</div>
-        <div class="tool">Notion</div>
-        <div class="tool">Linear</div>
-        <div class="tool accent">Storybook</div>
-        <div class="tool">GitHub</div>
-      </div>
-      <div class="ai-note">
-        <span class="hl">AI-native, but I can do it by hand.</span>
-        <p>I use LLMs and agents daily — for research synthesis, copy, scaffolding components, automating handoff. The craft underneath stays the same.</p>
+    <div class="hero-right">
+      <p class="hero-bio">With 7+ years of refining<br>the interplay between tools, interfaces<br>&amp; user experience.</p>
+      <div class="social-row">
+        <a class="ext-link" href="https://www.linkedin.com/in/oleg-salnikov-800204224" target="_blank" rel="noopener">linkedin<span class="material-symbols-outlined">open_in_new</span></a>
+        <a class="ext-link" href="#" target="_blank" rel="noopener">telegram<span class="material-symbols-outlined">open_in_new</span></a>
       </div>
     </div>
+  </section>
 
-    <div class="block">
-      <h3>// Skills</h3>
-      <div class="skills-list">
-        <div class="skill"><span>Design leadership</span><span class="level"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
-        <div class="skill"><span>Mentoring &amp; hiring</span><span class="level"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
-        <div class="skill"><span>Product design (IC)</span><span class="level"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
-        <div class="skill"><span>Design systems</span><span class="level"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
-        <div class="skill"><span>User research</span><span class="level"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
-        <div class="skill"><span>Prototyping &amp; motion</span><span class="level"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
-        <div class="skill"><span>Cross-functional collab</span><span class="level"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+  <section id="projects" class="container project-grid grid12">
+
+    <div class="project-item">
+      <a class="project-card" href="cases/igaming-platform.html">
+        <span class="card-label">view case<span class="material-symbols-outlined">arrow_forward</span></span>
+      </a>
+      <p class="project-name">Multi-Brand B2B/B2C Platform</p>
+    </div>
+
+    <div class="project-item">
+      <a class="project-card" href="cases/last-level.html">
+        <span class="card-label">view case<span class="material-symbols-outlined">arrow_forward</span></span>
+      </a>
+      <p class="project-name">Last Level — Modern Strike Online</p>
+    </div>
+
+    <div class="project-item">
+      <a class="project-card" href="cases/huawei-petal-search.html">
+        <span class="card-label">view case<span class="material-symbols-outlined">arrow_forward</span></span>
+      </a>
+      <p class="project-name">Petal Search — Huawei RU</p>
+    </div>
+
+    <div class="project-item">
+      <a class="project-card" href="cases/ads-design.html">
+        <span class="card-label">view case<span class="material-symbols-outlined">arrow_forward</span></span>
+      </a>
+      <p class="project-name">ADS Design Studio</p>
+    </div>
+
+    <div class="project-item">
+      <a class="project-card" href="cases/freelance.html">
+        <span class="card-label">view case<span class="material-symbols-outlined">arrow_forward</span></span>
+      </a>
+      <p class="project-name">Freelance — UI Design</p>
+    </div>
+
+  </section>
+
+  <section id="about" class="container about grid12">
+    <h2 class="display">about</h2>
+    <div class="about-points">
+      <div class="about-point">
+        <span class="material-symbols-outlined">draw</span>
+        <p>Distinctive visuals, everyday usability, and UX worked out down to the details – backed by 7+ years of hands-on work</p>
+      </div>
+      <div class="about-point">
+        <span class="material-symbols-outlined">code</span>
+        <p>I know what developers need for fast implementation. My work is based on team cooperation with well documented projects and clean assets</p>
       </div>
     </div>
-  </div>
-</section>
+    <img class="about-photo" src="assets/about-site.png" alt="Selected web design work">
+  </section>
+</main>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <h2>
-    Let's build<br/>
-    something <span class="accent">useful</span><br/>
-    <span class="stroke">together.</span>
-  </h2>
-
-  <div class="row">
-    <div>
-      <h4>// Email</h4>
-      <a href="mailto:o.salnikov.contact@gmail.com">o.salnikov.contact@gmail.com</a>
+<footer id="contacts" class="site-footer">
+  <div class="container footer-cols grid12">
+    <div class="footer-col">
+      <h3>contacts</h3>
+      <ul>
+        <li><a href="mailto:o.salnikov.contact@gmail.com">o.salnikov.contact@gmail.com</a></li>
+        <li><a href="#">download cv (pdf)</a></li>
+        <li><a href="#">cv on google docs</a></li>
+      </ul>
     </div>
-    <div>
-      <h4>// Elsewhere</h4>
-      <a href="https://www.linkedin.com/in/oleg-salnikov-800204224" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a href="#">Read.cv ↗</a>
-      <a href="#">Dribbble ↗</a>
-      <a href="#">GitHub ↗</a>
-    </div>
-    <div>
-      <h4>// Call</h4>
-      <a href="#">Book a 30-min intro ↗</a>
-      <a href="#">Download CV (PDF) ↗</a>
+    <div class="footer-col">
+      <h3>socials</h3>
+      <ul>
+        <li><a class="ext-link" href="https://www.linkedin.com/in/oleg-salnikov-800204224" target="_blank" rel="noopener">linkedin<span class="material-symbols-outlined">open_in_new</span></a></li>
+        <li><a class="ext-link" href="#" target="_blank" rel="noopener">telegram<span class="material-symbols-outlined">open_in_new</span></a></li>
+      </ul>
     </div>
   </div>
-
-  <div class="foot">
-    <span>© 2026 Oleg Salnikov · Limassol</span>
-    <span>Team Lead / Senior Product Designer</span>
-    <span>v3.1 · <a href="#top" style="color: inherit; text-decoration: none;">Back to top ↑</a></span>
+  <div class="container footer-bottom">
+    <a href="#">music i love</a>
+    <span class="built">site built by: <a href="#">me</a></span>
   </div>
-</section>
+</footer>
 
 </body>
 </html>
