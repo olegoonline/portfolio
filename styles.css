@@ -168,27 +168,26 @@ h1.display, .display {
   gap: 12px;
 }
 
-/* Row 1: wide (8 cols) + narrow (4 cols), same fixed height */
+/* Row 1: wide (8 cols) + narrow (4 cols) — scale with viewport, heights match */
 .pi-wide  { grid-column: span 8; }
 .pi-narrow { grid-column: span 4; }
 
-.pi-narrow .project-card {
-  aspect-ratio: unset;
-  height: 440px;
-}
+/* pi-narrow uses the default aspect-ratio: 1/1 from .project-card */
 
-/* Wide card: landscape container, square image centered inside */
+/* pi-wide ratio = 8-col-span-width / 4-col-span-width at base grid (1360 content)
+   = 900 / 440 → keeps wide card height visually equal to narrow card height */
 .pi-wide .project-card {
-  aspect-ratio: unset;
-  height: 440px;
+  aspect-ratio: 900 / 440;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Square image area inside the landscape wide card.
+   Height comes from parent (definite via aspect-ratio), width from 1:1 ratio. */
 .card-inner-square {
   position: relative;
-  height: 440px; /* explicit, same as .pi-wide .project-card height */
+  height: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
   flex-shrink: 0;
