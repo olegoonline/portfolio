@@ -171,10 +171,27 @@ h1.display, .display {
 /* Row 1: wide (8 cols) + narrow (4 cols), same fixed height */
 .pi-wide  { grid-column: span 8; }
 .pi-narrow { grid-column: span 4; }
-.pi-wide .project-card,
+
 .pi-narrow .project-card {
   aspect-ratio: unset;
   height: 440px;
+}
+
+/* Wide card: landscape container, square image centered inside */
+.pi-wide .project-card {
+  aspect-ratio: unset;
+  height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-inner-square {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .project-card {
