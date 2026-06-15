@@ -238,8 +238,15 @@ h1.display, .display {
 
 .about > h2 { grid-column: 1 / span 4; }
 
-.about-points {
+.about-right {
   grid-column: 7 / span 3;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding-top: 16px;
+}
+
+.about-points {
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -262,7 +269,6 @@ h1.display, .display {
 }
 
 .about-photo {
-  grid-column: 7 / span 3;
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
@@ -324,7 +330,7 @@ h1.display, .display {
 }
 
 .case-shot {
-  aspect-ratio: 670 / 440;
+  aspect-ratio: 1 / 1;
   background: var(--card);
   overflow: hidden;
 }
@@ -488,8 +494,7 @@ h1.display, .display {
   .pi-narrow .project-card { aspect-ratio: 1/1; height: auto; }
   .about { row-gap: 64px; }
   .about > h2 { grid-column: 1 / -1; }
-  .about-points { grid-column: 2 / span 6; }
-  .about-photo { grid-column: 2 / span 6; }
+  .about-right { grid-column: 2 / span 6; }
   .case-col:first-child, .case-col:last-child { grid-column: 1 / -1; }
   .footer-col:first-child { grid-column: 1 / span 6; }
   .footer-col:last-child { grid-column: 7 / span 6; }
@@ -503,8 +508,7 @@ h1.display, .display {
   .pi-wide,
   .pi-narrow { grid-column: 1 / -1; }
   .case-grid { grid-template-columns: 1fr; }
-  .about-points { grid-column: 1 / -1; padding-left: 44px; }
-  .about-photo { grid-column: 1 / -1; }
+  .about-right { grid-column: 1 / -1; padding-left: 44px; }
   .about-point > .material-symbols-outlined { left: -44px; }
   .footer-col:first-child { grid-column: 1 / -1; }
   .footer-col:last-child { grid-column: 1 / -1; margin-top: 64px; }
