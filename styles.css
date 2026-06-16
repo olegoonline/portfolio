@@ -349,6 +349,14 @@ h1.display, .display {
   aspect-ratio: 1 / 1;
   background: var(--card);
   overflow: hidden;
+  position: relative;
+}
+
+.case-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .case-cols {
