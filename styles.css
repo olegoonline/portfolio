@@ -527,9 +527,11 @@ h1.display, .display {
   .container { padding-left: 24px; padding-right: 24px; }
   h1.display, .display, .case-col h2 { font-size: 40px; }
   .hero-right { grid-column: 1 / -1; }
+  .project-list { gap: 48px; }
   .project-row { row-gap: 16px; }
   .project-text { grid-column: 1 / -1; }
   .project-image { grid-column: 1 / -1; }
+  .about::before { margin-bottom: 104px; }
   .case-grid { grid-template-columns: 1fr; }
   .about-right { grid-column: 1 / -1; padding-left: 44px; }
   .about-point > .material-symbols-outlined { left: -44px; }
