@@ -139,9 +139,9 @@ h1.display, .display {
 }
 
 .hero-bio {
-  font-size: 16px;
+  font-size: 21px;
   font-weight: 300;
-  line-height: 19px;
+  line-height: 25px;
   color: var(--text-secondary);
   text-align: right;
 }
