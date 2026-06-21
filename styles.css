@@ -428,9 +428,10 @@ h1.display, .display {
   text-wrap: pretty;
 }
 
-/* body-only note that continues a thought — aligns with siblings' body */
-.note--cont { padding-top: 103px; }
-.note--cont .note-body { margin-top: 0; }
+/* note that continues a thought — invisible num/title spacers keep its
+   body aligned with the sibling note's body, independent of font metrics */
+.note--cont .note-num,
+.note--cont .note-title { visibility: hidden; }
 
 .note-body a { color: var(--accent); }
 .note-body a:hover { opacity: 0.8; }
@@ -651,7 +652,7 @@ h1.display, .display {
   .case-title { font-size: 40px; }
   .case-notes, .case-split, .case-pair, .case-quad, .case-tiles { grid-template-columns: 1fr; row-gap: 56px; }
   .note-title { font-size: 28px; }
-  .note--cont { padding-top: 0; }
+  .note--cont .note-num, .note--cont .note-title { display: none; }
   .case-gallery .note, .case-figure .note { max-width: none; }
   .about-right { grid-column: 1 / -1; padding-left: 44px; }
   .about-point > .material-symbols-outlined { left: -44px; }
