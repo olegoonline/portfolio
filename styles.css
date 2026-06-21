@@ -659,3 +659,60 @@ h1.display, .display {
   .footer-col:first-child { grid-column: 1 / -1; }
   .footer-col:last-child { grid-column: 1 / -1; margin-top: 64px; }
 }
+
+/* ── Image lightbox (case pages, desktop / tablet only) ─────────── */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 88px;
+  background: rgba(8, 9, 11, 0.92);
+  backdrop-filter: blur(4px);
+}
+
+.lightbox[hidden] { display: none; }
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 4px;
+}
+
+.lightbox-btn {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lightbox-btn:hover { background: rgba(255, 255, 255, 0.16); color: var(--accent); }
+
+.lightbox-btn .material-symbols-outlined { font-size: 28px; }
+
+.lightbox-close { top: 24px; right: 24px; }
+.lightbox-prev { left: 24px; top: 50%; transform: translateY(-50%); }
+.lightbox-next { right: 24px; top: 50%; transform: translateY(-50%); }
+
+/* zoom affordance only where the lightbox is active */
+@media (min-width: 721px) {
+  .case-gallery img,
+  .case-tiles img,
+  .case-pair img,
+  .case-quad img,
+  .case-figure img,
+  .case-media img { cursor: zoom-in; }
+}
