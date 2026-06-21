@@ -36,8 +36,38 @@
   var index = 0;
   var lastFocused = null;
 
+  // click-to-zoom + pan, desktop pointers only
+  var canZoom = window.matchMedia('(hover: hover) and (pointer: fine)');
+  var ZOOM = 2.4;
+  var zoomed = false;
+  var baseRect = null;
+
+  function setZoom(on, e) {
+    zoomed = on && canZoom.matches;
+    bigImg.classList.toggle('is-zoomed', zoomed);
+    if (zoomed) {
+      baseRect = bigImg.getBoundingClientRect();
+      pan(e);
+      bigImg.style.transform = 'scale(' + ZOOM + ')';
+    } else {
+      baseRect = null;
+      bigImg.style.transform = '';
+      bigImg.style.transformOrigin = '';
+    }
+  }
+
+  function pan(e) {
+    if (!zoomed || !baseRect || !e) return;
+    var x = (e.clientX - baseRect.left) / baseRect.width * 100;
+    var y = (e.clientY - baseRect.top) / baseRect.height * 100;
+    x = Math.max(0, Math.min(100, x));
+    y = Math.max(0, Math.min(100, y));
+    bigImg.style.transformOrigin = x + '% ' + y + '%';
+  }
+
   function show(i) {
     index = (i + imgs.length) % imgs.length;
+    setZoom(false);
     var src = imgs[index].currentSrc || imgs[index].src;
     bigImg.src = src;
     bigImg.alt = imgs[index].alt || '';
@@ -53,6 +83,7 @@
   }
 
   function close() {
+    setZoom(false);
     box.hidden = true;
     bigImg.removeAttribute('src');
     document.documentElement.style.overflow = '';
@@ -67,6 +98,13 @@
   closeBtn.addEventListener('click', close);
   prevBtn.addEventListener('click', function () { show(index - 1); });
   nextBtn.addEventListener('click', function () { show(index + 1); });
+
+  // click the large image to toggle zoom; move the mouse to pan
+  bigImg.addEventListener('click', function (e) {
+    e.stopPropagation();
+    setZoom(!zoomed, e);
+  });
+  box.addEventListener('mousemove', pan);
 
   document.addEventListener('keydown', function (e) {
     if (box.hidden) return;

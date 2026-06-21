@@ -682,6 +682,16 @@ h1.display, .display {
   object-fit: contain;
   display: block;
   border-radius: 4px;
+  transition: transform 0.15s ease;
+  will-change: transform;
+}
+
+.lightbox-img.is-zoomed { transition: transform 0.05s linear; border-radius: 0; }
+
+/* click-to-zoom only on real pointers (desktop) */
+@media (hover: hover) and (pointer: fine) {
+  .lightbox-img { cursor: zoom-in; }
+  .lightbox-img.is-zoomed { cursor: zoom-out; }
 }
 
 .lightbox-btn {
