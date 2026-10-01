@@ -208,6 +208,9 @@ h1.display, .display {
 
 .social-row .ext-link .material-symbols-outlined { font-size: 20px; }
 
+/* always-accent link (e.g. a case's github link) */
+.ext-link--accent { color: var(--accent); }
+
 /* ── Project list ───────────────────────────────────────────────── */
 
 .project-list {
