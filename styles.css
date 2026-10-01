@@ -567,6 +567,8 @@ h1.display, .display {
 }
 
 .case-figure .note { max-width: 40.3%; }
+/* full-width note text, like the case intro (airpods) */
+.case-figure--wide .note { max-width: none; }
 .case-figure img { width: 100%; height: auto; display: block; border-radius: var(--radius); }
 
 /* two tall screenshots side by side (modern strike) */
